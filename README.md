@@ -1,47 +1,169 @@
-# Projeto Chacal
+# UNFIXED STUDIO
 
-This repo was exported from the Framer project "Projeto Chacal"
+Um site moderno e responsivo criado com React, TypeScript, Vite e Framer Motion, baseado no design exportado do Framer.
 
-This is just an example showcasing how to import the components and render them for your project. You will need to tweak a few styles and code to make the website look the same as Framer, for example changing the background color. You will also need to add other pages manually, following [App.tsx](./src/App.tsx) as an example.
+## 🚀 Tecnologias Utilizadas
 
-## Preview of your website
+- **React 18** - Biblioteca para interfaces de usuário
+- **TypeScript** - Superset do JavaScript com tipagem estática
+- **Vite** - Build tool rápida e moderna
+- **Framer Motion** - Biblioteca de animações para React
+- **Tailwind CSS** - Framework CSS utilitário
+- **React Router** - Roteamento para aplicações React
 
-An example preview of your website is already deployed [here](https://projeto-chacal-6d1ac-demos.unframer.co). If there are any styles issues like wrong background color you can easily fix it with a little bit of code. When you push new commits to this repository that website will be automatically updated.
+## 📁 Estrutura do Projeto
 
-## Customizing styles and content
-
-The important code is inside [App.tsx](./src/App.tsx), it imports the Framer styles and your project React components. You can customize them using Tailwind classes and passing props, each Framer variable becomes a customizable React prop.
-
-To customize content you can also change the content directly in Framer and sync again. CMS content will need to run `npm run framer` to be synced with your code too.
-
-## Sync changes from Framer
-
-After you make changes inside the Framer project you can run again the command `npm run framer` to download the latest changes from your Framer project. If you add new components or pages you will also need to run the React Export plugin again first.
-
-## Development
-
-Install dependencies:
-```bash
-npm install
+```
+src/
+├── components/          # Componentes React
+│   ├── Navbar.tsx      # Navegação principal
+│   ├── Hero.tsx        # Seção hero
+│   ├── About.tsx       # Seção sobre
+│   ├── Services.tsx    # Seção serviços
+│   ├── Portfolio.tsx   # Seção portfólio
+│   ├── Contact.tsx     # Seção contato
+│   └── Footer.tsx      # Rodapé
+├── styles/             # Estilos CSS
+│   └── globals.css     # Estilos globais
+├── assets/             # Recursos estáticos
+├── utils/              # Utilitários
+├── App.tsx             # Componente principal
+└── main.tsx            # Ponto de entrada
 ```
 
-Generate component files from Framer:
-```bash
-npm run framer
+## 🛠️ Instalação e Execução
+
+### Pré-requisitos
+- Node.js (versão 16 ou superior)
+- npm ou yarn
+
+### Passos para instalação
+
+1. **Clone o repositório**
+   ```bash
+   git clone <url-do-repositorio>
+   cd projeto-chacal-6d1ac-main
+   ```
+
+2. **Instale as dependências**
+   ```bash
+   npm install
+   ```
+
+3. **Execute o projeto em modo de desenvolvimento**
+   ```bash
+   npm run dev
+   ```
+
+4. **Acesse o projeto**
+   Abra [http://localhost:3000](http://localhost:3000) no seu navegador
+
+### Scripts Disponíveis
+
+- `npm run dev` - Executa o projeto em modo de desenvolvimento
+- `npm run build` - Cria a versão de produção
+- `npm run preview` - Visualiza a versão de produção localmente
+- `npm run lint` - Executa o linter
+
+## 🎨 Características do Design
+
+- **Design Responsivo** - Funciona perfeitamente em desktop, tablet e mobile
+- **Animações Suaves** - Animações fluidas com Framer Motion
+- **Tipografia Moderna** - Fontes Instrument Serif e Inter
+- **Tema Escuro** - Design elegante com tema escuro
+- **Navegação Suave** - Scroll suave entre seções
+- **Interatividade** - Elementos interativos e hover effects
+
+## 🚀 Deploy no Vercel
+
+### Deploy Automático
+
+1. **Conecte o repositório ao Vercel**
+   - Acesse [vercel.com](https://vercel.com)
+   - Faça login com sua conta GitHub
+   - Clique em "New Project"
+   - Importe este repositório
+
+2. **Configure o projeto**
+   - Framework: Vite
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Root Directory: `.` (raiz do projeto)
+
+3. **Deploy**
+   - Clique em "Deploy"
+   - O Vercel fará o build e deploy automaticamente
+
+### Deploy Manual
+
+1. **Build do projeto**
+   ```bash
+   npm run build
+   ```
+
+2. **Instale o Vercel CLI**
+   ```bash
+   npm i -g vercel
+   ```
+
+3. **Deploy**
+   ```bash
+   vercel --prod
+   ```
+
+## 📱 Responsividade
+
+O site é totalmente responsivo e funciona em:
+- **Desktop** (1200px+)
+- **Tablet** (810px - 1199px)
+- **Mobile** (até 809px)
+
+## 🎯 Seções do Site
+
+1. **Hero** - Apresentação principal com call-to-action
+2. **About** - Informações sobre a empresa e estatísticas
+3. **Services** - Lista de serviços oferecidos
+4. **Portfolio** - Galeria de projetos com filtros
+5. **Contact** - Formulário de contato e informações
+6. **Footer** - Links e informações adicionais
+
+## 🔧 Personalização
+
+### Cores
+As cores podem ser personalizadas no arquivo `tailwind.config.js`:
+```javascript
+colors: {
+  'framer-black': '#000000',
+  'framer-white': '#ffffff',
+  'framer-gray': '#666666',
+}
 ```
 
-Start development server:
-```bash
-npm run dev
-```
+### Fontes
+As fontes estão configuradas no `tailwind.config.js` e no `globals.css`:
+- Instrument Serif (títulos)
+- Inter (texto geral)
+- Manrope (elementos especiais)
 
-## Project Structure
+### Animações
+As animações podem ser personalizadas nos componentes usando Framer Motion.
 
-The `package.json` `framer` script generates the React components in the `src/framer` folder. These files are machine generated and should not be updated manually, instead you can update the content directly in Framer and sync again. You can also use Framer variables to update content from code using React props. This works even for callbacks like `onClick`.
+## 📄 Licença
 
-The file [App.tsx](./src/App.tsx) contains an example generated component with your components, you can modify it to change the appearence of your website. You can also pass Framer variables using props.
+Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
+## 🤝 Contribuição
 
-## More info
+Contribuições são bem-vindas! Sinta-se à vontade para:
+- Reportar bugs
+- Sugerir novas funcionalidades
+- Enviar pull requests
 
-You can read more documentation in [the Unframer repository](https://github.com/remorses/unframer)
+## 📞 Contato
+
+- **Email**: hello@unfixedstudio.com
+- **Website**: [unfixedstudio.com](https://unfixedstudio.com)
+
+---
+
+Desenvolvido com ❤️ pela UNFIXED STUDIO
