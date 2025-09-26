@@ -1,0 +1,29 @@
+# Arquivos de documentação (não precisam ser deployados)
+*.md
+!README.md
+
+# Arquivos de desenvolvimento
+.git/
+.gitignore
+.vscode/
+.idea/
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.log
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de configuração local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

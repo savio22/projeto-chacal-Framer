@@ -1,24 +1,33 @@
 {
-  "name": "unfixed-studio",
+  "name": "chacal-me",
   "version": "1.0.0",
-  "description": "Unfixed Studio - Agência criativa especializada em soluções digitais inovadoras",
-  "main": "index.js",
+  "description": "Chacal - Criatividade guiada por estratégia e tecnologia. Portfólio de Sávio Aglio de Morais.",
+  "main": "page.html",
   "scripts": {
-    "build": "echo 'Build completed'",
-    "start": "echo 'Server started'",
-    "dev": "echo 'Development server started'"
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site ready'",
+    "dev": "echo 'Static site ready'"
   },
   "keywords": [
+    "chacal",
     "design",
     "digital",
     "creative",
-    "agency",
-    "website",
-    "portfolio"
+    "technology",
+    "automation",
+    "ui-ux",
+    "web-development",
+    "portfolio",
+    "savio-aglio"
   ],
-  "author": "Unfixed Studio",
+  "author": "Sávio Aglio de Morais (Chacal)",
   "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/chacal-me.git"
+  },
+  "homepage": "https://chacal.me"
 }
