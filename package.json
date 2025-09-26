@@ -1,0 +1,24 @@
+{
+  "name": "unfixed-studio",
+  "version": "1.0.0",
+  "description": "Unfixed Studio - Agência criativa especializada em soluções digitais inovadoras",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo 'Build completed'",
+    "start": "echo 'Server started'",
+    "dev": "echo 'Development server started'"
+  },
+  "keywords": [
+    "design",
+    "digital",
+    "creative",
+    "agency",
+    "website",
+    "portfolio"
+  ],
+  "author": "Unfixed Studio",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
