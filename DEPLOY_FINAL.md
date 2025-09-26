@@ -33,11 +33,9 @@ O site **Chacal.me** está completamente configurado e pronto para deploy. Todas
 
 ### **Vercel (vercel.json)**
 - ✅ Framework: Static Site
-- ✅ Build Command: Otimizado
-- ✅ Output Directory: Raiz (.)
-- ✅ Routes: Configuradas
-- ✅ Headers: Cache otimizado
-- ✅ Rewrites: Página inicial
+- ✅ Build: @vercel/static para todos os arquivos
+- ✅ Rewrites: Página inicial configurada
+- ✅ Configuração simplificada e compatível
 
 ### **Package.json**
 - ✅ Nome: chacal-me
