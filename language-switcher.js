@@ -1,30 +1,23 @@
-// Language Switcher for Chacal.me
-// Enhanced version for Framer sites with React rendering
-
+// Language Switcher for Chacal.me - Enhanced for Framer/React
 (function() {
     'use strict';
     
-    // Configurações
     const CONFIG = {
         storageKey: 'chacal-language',
         defaultLanguage: 'pt',
-        selectorPosition: 'fixed', // fixed ou relative
+        selectorPosition: 'fixed',
         selectorTop: '20px',
         selectorRight: '20px',
         selectorZIndex: 9999
     };
     
-    // Traduções
     const TRANSLATIONS = {
         pt: {
-            // Navigation
             'Home': 'Início',
             'About': 'Sobre',
             'Work': 'Trabalhos',
             'Blog': 'Blog',
             'Contact': 'Contato',
-            
-            // Buttons
             'Get in touch': 'Entre em contato',
             'View all': 'Ver todos',
             'Read more': 'Ler mais',
@@ -36,8 +29,6 @@
             'Let\'s talk': 'Vamos conversar',
             'Start a project': 'Iniciar projeto',
             'Contact Us': 'Entre em contato',
-            
-            // Content
             'Creative': 'Criativo',
             'Digital': 'Digital',
             'Studio': 'Estúdio',
@@ -56,27 +47,18 @@
             'What we do': 'O que fazemos',
             'Who we are': 'Quem somos',
             'Our team': 'Nossa equipe',
-            
-            // Descriptions
-            'Unfixed Studio is a creative agency that specializes in delivering innovative digital solutions. We craft exceptional websites and digital experiences that help brands thrive in today\'s fast-paced digital landscape.': 'Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.',
-            
-            // Footer
             'TERMS AND CONDITIONS': 'TERMOS E CONDIÇÕES',
             'PRIVACY POLICY': 'POLÍTICA DE PRIVACIDADE',
-            
-            // Common phrases
             'Have a project in mind? Get in touch with us today and let\'s transform your vision into a digital experience that stands out.': 'Tem um projeto em mente? Entre em contato conosco hoje e vamos transformar sua visão em uma experiência digital que se destaque.',
-            'Into Masterpieces': 'Em Obras-Primas'
+            'Into Masterpieces': 'Em Obras-Primas',
+            'Unfixed Studio is a creative agency that specializes in delivering innovative digital solutions. We craft exceptional websites and digital experiences that help brands thrive in today\'s fast-paced digital landscape.': 'Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.'
         },
         en: {
-            // Navigation
             'Início': 'Home',
             'Sobre': 'About',
             'Trabalhos': 'Work',
             'Blog': 'Blog',
             'Contato': 'Contact',
-            
-            // Buttons
             'Entre em contato': 'Get in touch',
             'Ver todos': 'View all',
             'Ler mais': 'Read more',
@@ -86,8 +68,6 @@
             'Começar': 'Get started',
             'Vamos conversar': 'Let\'s talk',
             'Iniciar projeto': 'Start a project',
-            
-            // Content
             'Criativo': 'Creative',
             'Digital': 'Digital',
             'Estúdio': 'Studio',
@@ -106,28 +86,22 @@
             'O que fazemos': 'What we do',
             'Quem somos': 'Who we are',
             'Nossa equipe': 'Our team',
-            
-            // Descriptions
-            'Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.': 'Unfixed Studio is a creative agency that specializes in delivering innovative digital solutions. We craft exceptional websites and digital experiences that help brands thrive in today\'s fast-paced digital landscape.',
-            
-            // Footer
             'TERMOS E CONDIÇÕES': 'TERMS AND CONDITIONS',
             'POLÍTICA DE PRIVACIDADE': 'PRIVACY POLICY',
-            
-            // Common phrases
             'Tem um projeto em mente? Entre em contato conosco hoje e vamos transformar sua visão em uma experiência digital que se destaque.': 'Have a project in mind? Get in touch with us today and let\'s transform your vision into a digital experience that stands out.',
-            'Em Obras-Primas': 'Into Masterpieces'
+            'Em Obras-Primas': 'Into Masterpieces',
+            'Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.': 'Unfixed Studio is a creative agency that specializes in delivering innovative digital solutions. We craft exceptional websites and digital experiences that help brands thrive in today\'s fast-paced digital landscape.'
         }
     };
     
-    // Classe principal
     class ChacalLanguageSwitcher {
         constructor() {
             this.currentLanguage = this.getStoredLanguage() || CONFIG.defaultLanguage;
             this.selector = null;
             this.isInitialized = false;
+            this.observer = null;
             this.retryCount = 0;
-            this.maxRetries = 10;
+            this.maxRetries = 20;
             
             this.init();
         }
@@ -136,7 +110,6 @@
             try {
                 return localStorage.getItem(CONFIG.storageKey);
             } catch (e) {
-                console.warn('Erro ao acessar localStorage:', e);
                 return null;
             }
         }
@@ -152,7 +125,6 @@
         init() {
             if (this.isInitialized) return;
             
-            // Aguardar o carregamento da página
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     this.waitForFramerAndInit();
@@ -164,19 +136,19 @@
         
         waitForFramerAndInit() {
             const checkFramer = () => {
-                // Verificar se o Framer carregou
                 const framerLoaded = window.React || 
-                                   document.querySelector('[data-framer-name]') ||
+                                   document.querySelector('[data-framer-hydrate-v2]') ||
                                    document.querySelector('.framer-9stb5t') ||
                                    document.querySelector('script[src*="framer"]');
                 
                 if (framerLoaded || this.retryCount >= this.maxRetries) {
                     setTimeout(() => {
                         this.createLanguageSelector();
+                        this.setupMutationObserver();
                         this.applyLanguage(this.currentLanguage);
                         this.isInitialized = true;
                         console.log('🌐 Chacal Language Switcher inicializado');
-                    }, 1000);
+                    }, 1500);
                 } else {
                     this.retryCount++;
                     setTimeout(checkFramer, 500);
@@ -185,14 +157,40 @@
             checkFramer();
         }
         
+        setupMutationObserver() {
+            if (this.observer) {
+                this.observer.disconnect();
+            }
+            
+            this.observer = new MutationObserver((mutations) => {
+                let shouldUpdate = false;
+                
+                mutations.forEach((mutation) => {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        shouldUpdate = true;
+                    }
+                });
+                
+                if (shouldUpdate) {
+                    setTimeout(() => {
+                        this.applyLanguage(this.currentLanguage);
+                    }, 100);
+                }
+            });
+            
+            this.observer.observe(document.body, {
+                childList: true,
+                subtree: true,
+                characterData: true
+            });
+        }
+        
         createLanguageSelector() {
-            // Remover seletor existente se houver
             const existingSelector = document.querySelector('.chacal-language-selector');
             if (existingSelector) {
                 existingSelector.remove();
             }
             
-            // Criar container do seletor
             this.selector = document.createElement('div');
             this.selector.className = 'chacal-language-selector';
             this.selector.style.cssText = `
@@ -204,7 +202,6 @@
                 font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             `;
             
-            // Criar botão do seletor
             const button = document.createElement('button');
             button.className = 'chacal-language-button';
             button.style.cssText = `
@@ -231,7 +228,6 @@
                 <span class="chacal-arrow" style="margin-left: 8px; transition: transform 0.3s ease; font-size: 12px;">▼</span>
             `;
             
-            // Criar dropdown
             const dropdown = document.createElement('div');
             dropdown.className = 'chacal-language-dropdown';
             dropdown.style.cssText = `
@@ -263,7 +259,6 @@
                 </div>
             `;
             
-            // Adicionar efeitos hover ao botão
             button.addEventListener('mouseenter', () => {
                 button.style.backgroundColor = 'rgba(255, 255, 255, 1)';
                 button.style.transform = 'translateY(-2px)';
@@ -276,13 +271,11 @@
                 button.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
             });
             
-            // Adicionar handler de clique
             button.addEventListener('click', (e) => {
                 e.stopPropagation();
                 this.toggleDropdown();
             });
             
-            // Adicionar handlers das opções
             dropdown.querySelectorAll('.chacal-language-option').forEach(option => {
                 option.addEventListener('mouseenter', () => {
                     option.style.backgroundColor = 'rgba(0, 0, 0, 0.05)';
@@ -300,21 +293,16 @@
                 });
             });
             
-            // Fechar dropdown ao clicar fora
             document.addEventListener('click', (e) => {
                 if (!this.selector.contains(e.target)) {
                     this.hideDropdown();
                 }
             });
             
-            // Montar o seletor
             this.selector.appendChild(button);
             this.selector.appendChild(dropdown);
-            
-            // Inserir no DOM
             document.body.appendChild(this.selector);
             
-            // Salvar referências
             this.button = button;
             this.dropdown = dropdown;
         }
@@ -349,10 +337,8 @@
             this.setStoredLanguage(lang);
             this.applyLanguage(lang);
             
-            // Atualizar texto do botão
             this.button.querySelector('.chacal-current-lang').textContent = lang.toUpperCase();
             
-            // Feedback visual
             this.button.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.button.style.transform = 'scale(1)';
@@ -363,10 +349,7 @@
             const translations = TRANSLATIONS[lang];
             if (!translations) return;
             
-            // Atualizar meta descriptions
             this.updateMetaDescriptions(translations);
-            
-            // Atualizar conteúdo da página
             this.updatePageContent(translations);
         }
         
@@ -374,19 +357,16 @@
             const metaDescription = translations['Unfixed Studio is a creative agency that specializes in delivering innovative digital solutions. We craft exceptional websites and digital experiences that help brands thrive in today\'s fast-paced digital landscape.'];
             
             if (metaDescription) {
-                // Atualizar meta description
                 const metaDesc = document.querySelector('meta[name="description"]');
                 if (metaDesc) {
                     metaDesc.setAttribute('content', metaDescription);
                 }
                 
-                // Atualizar Open Graph description
                 const ogDesc = document.querySelector('meta[property="og:description"]');
                 if (ogDesc) {
                     ogDesc.setAttribute('content', metaDescription);
                 }
                 
-                // Atualizar Twitter description
                 const twitterDesc = document.querySelector('meta[name="twitter:description"]');
                 if (twitterDesc) {
                     twitterDesc.setAttribute('content', metaDescription);
@@ -395,41 +375,49 @@
         }
         
         updatePageContent(translations) {
-            // Aguardar um pouco para garantir que o React renderizou
-            setTimeout(() => {
-                // Atualizar todos os nós de texto
-                const walker = document.createTreeWalker(
-                    document.body,
-                    NodeFilter.SHOW_TEXT,
-                    null,
-                    false
-                );
-                
-                let node;
-                while (node = walker.nextNode()) {
-                    const text = node.textContent.trim();
-                    if (translations[text]) {
-                        node.textContent = translations[text];
-                    }
+            // Método mais agressivo para traduzir conteúdo React
+            const translateText = (text) => {
+                return translations[text] || text;
+            };
+            
+            // Traduzir todos os elementos de texto
+            const walker = document.createTreeWalker(
+                document.body,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            let node;
+            while (node = walker.nextNode()) {
+                const text = node.textContent.trim();
+                if (text && translations[text]) {
+                    node.textContent = translations[text];
                 }
+            }
+            
+            // Traduzir elementos específicos
+            Object.keys(translations).forEach(original => {
+                const translated = translations[original];
                 
-                // Atualizar elementos específicos
-                Object.keys(translations).forEach(original => {
-                    const translated = translations[original];
-                    
-                    // Atualizar elementos com texto específico
-                    const elements = document.querySelectorAll('*');
-                    elements.forEach(el => {
-                        if (el.textContent && el.textContent.trim() === original) {
-                            el.textContent = translated;
-                        }
-                    });
+                // Buscar por texto exato
+                const elements = document.querySelectorAll('*');
+                elements.forEach(el => {
+                    if (el.textContent && el.textContent.trim() === original) {
+                        el.textContent = translated;
+                    }
                 });
-            }, 500);
+                
+                // Buscar por texto parcial
+                elements.forEach(el => {
+                    if (el.textContent && el.textContent.includes(original)) {
+                        el.textContent = el.textContent.replace(original, translated);
+                    }
+                });
+            });
         }
     }
     
-    // Inicializar quando a página carregar
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
             new ChacalLanguageSwitcher();
@@ -438,7 +426,6 @@
         new ChacalLanguageSwitcher();
     }
     
-    // Expor globalmente para debug
     window.ChacalLanguageSwitcher = ChacalLanguageSwitcher;
     
 })();
