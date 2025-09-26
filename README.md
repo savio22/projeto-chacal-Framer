@@ -65,6 +65,7 @@ Este é um site estático exportado do Framer, traduzido para português e otimi
 
 - ✅ Site estático otimizado
 - ✅ Traduzido para português
+- ✅ **Seletor de idioma** (Português/Inglês)
 - ✅ Configurado para Vercel
 - ✅ SEO otimizado
 - ✅ Responsivo
@@ -77,6 +78,18 @@ Este é um site estático exportado do Framer, traduzido para português e otimi
 - JavaScript
 - Framer (exportado)
 - Vercel (hosting)
+
+## Seletor de Idioma
+
+O site inclui um seletor de idioma elegante que permite alternar entre português e inglês:
+
+- **Localização**: Integrado ao menu de navegação
+- **Funcionalidade**: Troca dinâmica sem recarregar a página
+- **Persistência**: Lembra a escolha do usuário
+- **SEO**: Atualiza meta tags automaticamente
+- **Animações**: Mantém as animações originais do Framer
+
+Para mais detalhes, consulte [LANGUAGE_SWITCHER.md](./LANGUAGE_SWITCHER.md).
 
 ## Contato
 
