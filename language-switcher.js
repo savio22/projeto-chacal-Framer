@@ -81,7 +81,8 @@
     
     class SimpleLanguageSwitcher {
         constructor() {
-            this.currentLanguage = this.getStoredLanguage() || CONFIG.defaultLanguage;
+            // Forçar português como idioma padrão, sem UI
+            this.currentLanguage = 'pt';
             this.selector = null;
             this.isInitialized = false;
             this.mobileInjectionDone = false;
@@ -122,121 +123,34 @@
         delayedInit() {
             // Aguardar mais tempo para o Framer carregar
             setTimeout(() => {
-                this.createLanguageSelector();
-                this.applyLanguage(this.currentLanguage);
+                // Força PT e não cria UI
+                try { this.setStoredLanguage && this.setStoredLanguage('pt'); } catch(e) {}
+                this.currentLanguage = 'pt';
+                this.applyLanguage('pt');
                 this.isInitialized = true;
-                console.log('🌐 Chacal Language Switcher inicializado');
-                // Tentar integrar no menu mobile
-                this.tryIntegrateIntoMobileMenu();
-                // Reagir a resize (desktop/mobile)
-                window.addEventListener('resize', this.onResize.bind(this));
+                console.log('🌐 Tradução forçada para PT ativa');
+                // Observar mudanças no DOM para manter PT
+                this.startObserver();
             }, 3000);
         }
         
-        createLanguageSelector() {
-            // Remover seletor existente
-            const existingSelector = document.querySelector('.chacal-language-selector');
-            if (existingSelector) {
-                existingSelector.remove();
-            }
-            
-            // Criar container
-            this.selector = document.createElement('div');
-            this.selector.className = 'chacal-language-selector';
-            this.selector.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                z-index: 9999;
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            `;
-            
-            // Criar botão
-            const button = document.createElement('button');
-            button.className = 'chacal-language-button';
-            button.style.cssText = `
-                background: rgba(255, 255, 255, 0.95);
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                color: #333;
-                font-size: 14px;
-                font-weight: 600;
-                cursor: pointer;
-                padding: 10px 16px;
-                border-radius: 8px;
-                transition: all 0.3s ease;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                backdrop-filter: blur(10px);
-                outline: none;
-                user-select: none;
-            `;
-            
-            button.innerHTML = `
-                <span class="chacal-current-lang">${this.currentLanguage.toUpperCase()}</span>
-                <span class="chacal-arrow" style="margin-left: 8px; transition: transform 0.3s ease; font-size: 12px;">▼</span>
-            `;
-            
-            // Criar dropdown
-            const dropdown = document.createElement('div');
-            dropdown.className = 'chacal-language-dropdown';
-            dropdown.style.cssText = `
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: white;
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: all 0.3s ease;
-                z-index: 10000;
-                min-width: 140px;
-                margin-top: 4px;
-                overflow: hidden;
-            `;
-            
-            dropdown.innerHTML = `
-                <div class="chacal-language-option" data-lang="pt" style="padding: 12px 16px; cursor: pointer; border-bottom: 1px solid #f0f0f0; transition: background-color 0.2s ease; display: flex; align-items: center; font-size: 14px;">
-                    <span style="font-size: 16px; margin-right: 8px;">🇧🇷</span>
-                    <span>Português</span>
-                </div>
-                <div class="chacal-language-option" data-lang="en" style="padding: 12px 16px; cursor: pointer; transition: background-color 0.2s ease; display: flex; align-items: center; font-size: 14px;">
-                    <span style="font-size: 16px; margin-right: 8px;">🇺🇸</span>
-                    <span>English</span>
-                </div>
-            `;
-            
-            // Event listeners
-            button.addEventListener('click', (e) => {
-                e.stopPropagation();
-                this.toggleDropdown();
-            });
-            
-            dropdown.querySelectorAll('.chacal-language-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const lang = option.dataset.lang;
-                    this.switchLanguage(lang);
-                    this.hideDropdown();
+        startObserver() {
+            try {
+                if (this._mo) return;
+                const applyPT = () => {
+                    try { this.applyLanguage('pt'); } catch(e) {}
+                };
+                this._mo = new MutationObserver(() => {
+                    applyPT();
                 });
-            });
-            
-            document.addEventListener('click', (e) => {
-                if (!this.selector.contains(e.target)) {
-                    this.hideDropdown();
-                }
-            });
-            
-            // Montar
-            this.selector.appendChild(button);
-            this.selector.appendChild(dropdown);
-            document.body.appendChild(this.selector);
-            
-            this.button = button;
-            this.dropdown = dropdown;
+                this._mo.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
+                // Reaplicar periodicamente como fallback
+                this._interval = setInterval(applyPT, 4000);
+            } catch (e) {}
+        }
+
+        createLanguageSelector() {
+            // Intencionalmente vazio: sem UI
         }
         
         onResize() {
@@ -456,13 +370,12 @@
         }
         
         switchLanguage(lang) {
+            // Sem alternância pública; sempre PT
+            if (lang !== 'pt') lang = 'pt';
             if (lang === this.currentLanguage) return;
-            
-            this.currentLanguage = lang;
-            this.setStoredLanguage(lang);
-            this.applyLanguage(lang);
-            
-            this.button.querySelector('.chacal-current-lang').textContent = lang.toUpperCase();
+            this.currentLanguage = 'pt';
+            try { this.setStoredLanguage && this.setStoredLanguage('pt'); } catch(e) {}
+            this.applyLanguage('pt');
         }
         
         applyLanguage(lang) {
