@@ -1,10 +1,10 @@
-# Unfixed Studio
+# Chacal.me
 
-Unfixed Studio é uma agência criativa que se especializa em entregar soluções digitais inovadoras. Criamos websites e experiências digitais excepcionais que ajudam marcas a prosperar no cenário digital acelerado de hoje.
+**Chacal** é a marca digital de Sávio Aglio de Morais, um criador que une estratégia, criatividade e tecnologia para transformar ideias em experiências digitais únicas. Especializado em design, desenvolvimento e automação inteligente.
 
 ## Sobre o Projeto
 
-Este é um site estático exportado do Framer, traduzido para português e otimizado para deploy no Vercel.
+Este é um site estático exportado do Framer, completamente personalizado para a marca **Chacal**, com seletor de idioma (português/inglês) e otimizado para deploy no Vercel.
 
 ## Estrutura do Projeto
 
@@ -64,8 +64,9 @@ Este é um site estático exportado do Framer, traduzido para português e otimi
 ## Características
 
 - ✅ Site estático otimizado
-- ✅ Traduzido para português
+- ✅ **Personalizado para Chacal** (Sávio Aglio de Morais)
 - ✅ **Seletor de idioma** (Português/Inglês)
+- ✅ **Conteúdo completo**: 10 projetos, 6 serviços, 10 artigos
 - ✅ Configurado para Vercel
 - ✅ SEO otimizado
 - ✅ Responsivo
@@ -93,4 +94,16 @@ Para mais detalhes, consulte [LANGUAGE_SWITCHER.md](./LANGUAGE_SWITCHER.md).
 
 ## Contato
 
-Para mais informações sobre a Unfixed Studio, visite nosso site ou entre em contato através da página de contato.
+Para mais informações sobre a **Chacal**:
+
+- **Email**: chacalorg@hotmail.com
+- **WhatsApp**: +55 (32) 9 9981-9211
+- **LinkedIn**: linkedin.com/in/savioaglio
+- **Site**: chacal.me
+
+## Documentação
+
+- [LANGUAGE_SWITCHER.md](./LANGUAGE_SWITCHER.md) - Documentação do seletor de idioma
+- [CHACAL_SITE_INFO.md](./CHACAL_SITE_INFO.md) - Informações completas do site
+- [DEPLOY_INSTRUCTIONS.md](./DEPLOY_INSTRUCTIONS.md) - Instruções de deploy
+- [CHANGELOG.md](./CHANGELOG.md) - Histórico de alterações

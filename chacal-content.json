@@ -1,0 +1,300 @@
+{
+  "site_info": {
+    "name": "Chacal",
+    "full_name": "Sávio Aglio de Morais",
+    "tagline": "Criatividade guiada por estratégia e tecnologia",
+    "description": "Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.",
+    "domain": "chacal.me",
+    "email": "chacalorg@hotmail.com",
+    "whatsapp": "+55 (32) 9 9981-9211",
+    "location": "São João Nepomuceno, MG, Brasil",
+    "age": 25,
+    "experience_years": 6
+  },
+  "hero": {
+    "title": "Criatividade guiada por estratégia e tecnologia",
+    "subtitle": "Na Chacal, transformamos ideias em experiências digitais únicas, unindo design, tecnologia e automação inteligente para gerar impacto real e resultados mensuráveis.",
+    "cta": "Inicie seu projeto"
+  },
+  "about": {
+    "bio": "Sou Sávio Aglio de Morais, conhecido como Chacal, um criador digital de 25 anos de São João Nepomuceno, MG. Tenho formação técnica em Informática, Administração e Desenvolvimento de Aplicativos e mais de 6 anos de experiência em tecnologia, design e produtos digitais. Minha trajetória começou no setor fiscal, mas logo passei a desenvolver sites, aplicativos e soluções digitais personalizadas. Hoje, já são mais de 50 projetos entregues para clientes no Brasil e no exterior.\n\nAcredito que inovação é o equilíbrio entre estética, funcionalidade e estratégia. Cada projeto da Chacal é desenvolvido sob essa filosofia, para que marcas comuniquem melhor, engajem mais e alcancem resultados escaláveis.",
+    "philosophy": [
+      "Design funcional com foco em resultados",
+      "Tecnologia aplicada à experiência do usuário",
+      "Estratégia que conecta marcas e pessoas"
+    ],
+    "differentiators": [
+      "Integração de inteligência artificial em projetos",
+      "Soluções end-to-end: do branding ao desenvolvimento",
+      "Experiência prática em automação de processos",
+      "Abordagem centrada no cliente com metodologia ágil"
+    ],
+    "stats": [
+      "+50 projetos entregues",
+      "+25 clientes atendidos",
+      "92% taxa de retenção",
+      "Resultados médios: +120% performance digital em até 6 meses"
+    ]
+  },
+  "services": [
+    {
+      "name": "Estratégia & Automação",
+      "description": "Mapeamos processos e criamos soluções inteligentes usando IA e automação.",
+      "benefits": "aumento de produtividade, menos erros manuais, insights em tempo real",
+      "use_cases": "gestão fiscal, automação de marketing, relatórios inteligentes"
+    },
+    {
+      "name": "Design de Interfaces (UI/UX)",
+      "description": "Interfaces digitais centradas no usuário, com estética e usabilidade alinhadas.",
+      "benefits": "menores taxas de rejeição, melhor retenção e maior satisfação",
+      "use_cases": "apps, dashboards, produtos SaaS"
+    },
+    {
+      "name": "Desenvolvimento Web & Aplicativos",
+      "description": "Sites, portais e aplicativos sob medida para sua marca crescer online.",
+      "benefits": "responsividade, SEO otimizado, escalabilidade",
+      "use_cases": "e-commerces, aplicativos de agendamento, portais institucionais"
+    },
+    {
+      "name": "Identidade Visual & Branding",
+      "description": "Construímos e fortalecemos marcas por meio de identidades consistentes.",
+      "benefits": "marca memorável, presença sólida, diferenciação competitiva",
+      "use_cases": "criação de logotipos, manuais de marca, kits visuais"
+    },
+    {
+      "name": "Motion Graphics & VFX",
+      "description": "Efeitos visuais e animações que contam histórias de alto impacto.",
+      "benefits": "vídeos mais atrativos, maior engajamento nas redes",
+      "use_cases": "campanhas publicitárias, reels, vídeos institucionais"
+    },
+    {
+      "name": "Marketing Digital & Consultoria",
+      "description": "Desenvolvemos estratégias digitais completas para expandir negócios no ambiente online.",
+      "benefits": "aumento de visibilidade, tráfego qualificado, mais conversões",
+      "use_cases": "consultoria, anúncios digitais, campanhas integradas"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Sistema Inteligente de Gestão Fiscal",
+      "client": "Padaria Trigo de Ouro",
+      "challenge": "Automatizar relatórios fiscais manuais",
+      "solution": "Sistema com IA para cálculos automáticos",
+      "results": "-70% de erros, +12h semanais economizadas",
+      "technologies": "Python, Power BI",
+      "duration": "3 meses"
+    },
+    {
+      "name": "FitWear Store (E-commerce)",
+      "client": "Studio FitWear",
+      "challenge": "Aumentar presença digital",
+      "solution": "E-commerce responsivo integrado ao Instagram",
+      "results": "vendas +120% em 6 meses",
+      "technologies": "Shopify, React",
+      "duration": "2 meses"
+    },
+    {
+      "name": "Portal Educacional Interativo",
+      "client": "Edulink",
+      "challenge": "Baixo engajamento no ensino online",
+      "solution": "Plataforma gamificada com desempenho em tempo real",
+      "results": "+60% tempo de estudo",
+      "technologies": "React, Node.js",
+      "duration": "4 meses"
+    },
+    {
+      "name": "App de Agendamento Inteligente",
+      "client": "Clínica Bem Viver",
+      "challenge": "Reduzir falhas no agendamento",
+      "solution": "App mobile com confirmações automáticas via WhatsApp",
+      "results": "redução de 40% em faltas",
+      "technologies": "Flutter, Twilio API",
+      "duration": "3 meses"
+    },
+    {
+      "name": "Marketplace Gastronômico Local",
+      "client": "Sabor Delivery",
+      "challenge": "Conectar restaurantes locais a clientes em uma só plataforma",
+      "solution": "Marketplace mobile e web com integração de pagamentos",
+      "results": "200 novos pedidos na 1ª semana",
+      "technologies": "React, Firebase, Stripe",
+      "duration": "5 meses"
+    },
+    {
+      "name": "Portal Imobiliário",
+      "client": "VistaLuxe Imóveis",
+      "challenge": "Modernizar catálogo e captação de novos clientes",
+      "solution": "Site responsivo com tour virtual em 3D",
+      "results": "+80% leads qualificados",
+      "technologies": "WordPress, Three.js",
+      "duration": "3 meses"
+    },
+    {
+      "name": "Sistema de Eventos Corporativos",
+      "client": "Nexus Events",
+      "challenge": "Melhorar gestão de reservas",
+      "solution": "Dashboard de inscrições e QR code para check-in",
+      "results": "90% de redução em filas de entrada",
+      "technologies": "Node.js, MongoDB",
+      "duration": "2 meses"
+    },
+    {
+      "name": "Aplicativo Fitness Motivacional",
+      "client": "StrongLife",
+      "challenge": "Engajar usuários em treinos diários",
+      "solution": "App com lembretes inteligentes e gamificação",
+      "results": "+50% adesão dos alunos",
+      "technologies": "Flutter, Firebase",
+      "duration": "3 meses"
+    },
+    {
+      "name": "Site para Startup SaaS",
+      "client": "DataFlow Tech",
+      "challenge": "Lançar presença digital sólida em pouco tempo",
+      "solution": "Landing page otimizada com blog técnico integrado",
+      "results": "+10k leads nos primeiros 90 dias",
+      "technologies": "Next.js, HubSpot API",
+      "duration": "1 mês"
+    },
+    {
+      "name": "Rebranding Corporativo",
+      "client": "PharmaGroup",
+      "challenge": "Modernizar identidade visual",
+      "solution": "Redesign de logo, site e materiais institucionais",
+      "results": "maior autoridade e reposicionamento",
+      "technologies": "Figma, Adobe Suite",
+      "duration": "6 semanas"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Juliana Souza",
+      "role": "Diretora FitWear",
+      "quote": "Em apenas 6 meses nossos resultados dispararam. O site criado pela Chacal dobrou nossas vendas."
+    },
+    {
+      "name": "Carlos Alberto",
+      "role": "CEO Clínica Bem Viver",
+      "quote": "O app de agendamento foi inovador. A redução de faltas superou expectativas."
+    },
+    {
+      "name": "Fernanda Lima",
+      "role": "Produtora Monte Verde",
+      "quote": "O trabalho de VFX levou nossa comunicação a outro nível. Impacto imediato nas redes."
+    },
+    {
+      "name": "Rafael Torres",
+      "role": "Coordenador Edulink",
+      "quote": "O portal educacional fez nossos alunos estudarem mais e com mais interesse. Uma virada de chave total."
+    }
+  ],
+  "blog": [
+    {
+      "title": "IA aplicada ao design digital em 2025",
+      "summary": "Como IA redefine o design.",
+      "points": ["Prototipagem automática", "Testes de UX com IA", "Personalização em tempo real"],
+      "cta": "Adote IA no seu próximo projeto."
+    },
+    {
+      "title": "Storytelling visual: como prender atenção em 5 segundos",
+      "summary": "O poder de narrativas curtas e impactantes.",
+      "points": ["Estrutura de micro-histórias", "Contraste visual", "Ritmo no design"],
+      "cta": "Carregue sua marca de emoção visual."
+    },
+    {
+      "title": "UX que converte: pequenas mudanças, grandes resultados",
+      "summary": "Ajustes simples tornam experiências muito mais poderosas.",
+      "points": ["Microinterações", "Hierarquia visual", "Navegação fluida"],
+      "cta": "Transforme clicks em conversões."
+    },
+    {
+      "title": "Tendências de VFX para redes sociais",
+      "summary": "Como o VFX cria experiências virais em vídeo.",
+      "points": ["Efeitos curtos e marcantes", "Interatividade", "Mobile-first"],
+      "cta": "Seja relevante no novo audiovisual."
+    },
+    {
+      "title": "Automação para pequenos negócios: primeiros passos",
+      "summary": "Soluções acessíveis para empreendedores.",
+      "points": ["Ferramentas low-code", "Bots de atendimento", "Dashboards inteligentes"],
+      "cta": "Economize tempo, cresça mais."
+    },
+    {
+      "title": "Branding consciente e design sustentável",
+      "summary": "Como criar marcas responsáveis no digital.",
+      "points": ["Paleta ecológica", "Produção ética", "Mensagem sustentável"],
+      "cta": "Posicione sua marca pelo futuro."
+    },
+    {
+      "title": "Como construir autoridade digital em mercados competitivos",
+      "summary": "Posicionamento é chave no online.",
+      "points": ["Conteúdo relevante", "Branding autêntico", "Prova social"],
+      "cta": "Torne-se referência no seu nicho."
+    },
+    {
+      "title": "Frameworks modernos para acelerar projetos web",
+      "summary": "As opções mais eficientes para 2025.",
+      "points": ["Next.js", "SvelteKit", "Astro"],
+      "cta": "Escolha a base certa para seu projeto."
+    },
+    {
+      "title": "A nova era do vídeo criativo: VFX acessível",
+      "summary": "O audiovisual criativo nunca esteve tão acessível.",
+      "points": ["Ferramentas avançadas low-cost", "Workflows com IA", "Produção remota"],
+      "cta": "Use VFX sem gastar uma fortuna."
+    },
+    {
+      "title": "Estratégia antes da estética: o segredo do impacto digital",
+      "summary": "O design precisa ser sustentado por estratégia.",
+      "points": ["Defina objetivos claros", "Construa jornadas de usuário", "Teste sempre"],
+      "cta": "Dê direção certa ao seu projeto digital."
+    }
+  ],
+  "contact": {
+    "value_proposition": "Na Chacal, cada detalhe é pensado estrategicamente para que design e tecnologia trabalhem juntos e gerem resultados reais para a sua marca.",
+    "email": "chacalorg@hotmail.com",
+    "whatsapp": "+55 (32) 9 9981-9211",
+    "linkedin": "linkedin.com/in/savioaglio",
+    "website": "chacal.me",
+    "next_steps": [
+      "Solicite uma reunião gratuita",
+      "Mostre seu desafio digital",
+      "Receba insights estratégicos e proposta personalizada"
+    ],
+    "commitments": [
+      "Transparência total",
+      "Execução ágil",
+      "Suporte pós-entrega garantido"
+    ]
+  },
+  "faq": [
+    {
+      "question": "Como funciona o processo de criação?",
+      "answer": "Trabalhamos com briefing, conceito inicial, protótipo, desenvolvimento e entrega."
+    },
+    {
+      "question": "Quais são os prazos médios?",
+      "answer": "Sites: 3-5 semanas. Apps: 2-3 meses. Branding: 2-4 semanas."
+    },
+    {
+      "question": "Qual o custo médio dos projetos?",
+      "answer": "Varia conforme complexidade. Criamos propostas personalizadas para cada cliente."
+    },
+    {
+      "question": "Com quais tecnologias vocês trabalham?",
+      "answer": "React, Node.js, Flutter, WordPress, IA, Motion Design."
+    },
+    {
+      "question": "Existe treinamento para equipe após entrega?",
+      "answer": "Sim, oferecemos um onboarding digital em cada projeto."
+    },
+    {
+      "question": "Vocês atendem clientes fora do Brasil?",
+      "answer": "Sim, já trabalhamos com clientes internacionais, 100% online."
+    },
+    {
+      "question": "Vocês oferecem suporte recorrente?",
+      "answer": "Sim, com planos de manutenção mensais."
+    }
+  ]
+}
